@@ -22,10 +22,12 @@ public class TPSController : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;
     private bool _isGrounded;
     
+    private CheckpointData save;
  void Awake()
     {
         _controller = GetComponent<CharacterController>();
         _camera = Camera.main.transform;
+        save = GameObject.Find("SaveManager").GetComponent<CheckpointData>();
     }
 
     void Update()
@@ -64,5 +66,33 @@ public class TPSController : MonoBehaviour
         }
         _playerGravity.y += _gravity * Time.deltaTime;
         _controller.Move(_playerGravity * Time.deltaTime);
+    }
+    void UserPosition()
+    {
+        transform.position = new Vector3 (save.userPosition.x, save.userPosition.y, save.userPosition.z);
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if(collider.gameObject.tag == "Checkpoint1")
+        {
+            save.Checkpoint = "1"; 
+            save.SaveData();
+            Debug.Log("Guardado");
+        }
+
+        if(collider.gameObject.tag == "Checkpoint2")
+        {
+            save.Checkpoint = "2";
+            save.SaveData();
+            Debug.Log("Guardado");
+        }
+
+        if(collider.gameObject.tag == "Checkpoint3")
+        {
+            save.Checkpoint = "3";
+            save.SaveData();
+            Debug.Log("Guardado");
+        }
     }
 }
