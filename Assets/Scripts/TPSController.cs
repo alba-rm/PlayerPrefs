@@ -22,7 +22,7 @@ public class TPSController : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;
     private bool _isGrounded;
     
-    private CheckpointData save;
+    public CheckpointData save;
  void Awake()
     {
         _controller = GetComponent<CharacterController>();
@@ -69,7 +69,7 @@ public class TPSController : MonoBehaviour
     }
     void UserPosition()
     {
-        transform.position = new Vector3 (save.userPosition.x, save.userPosition.y, save.userPosition.z);
+        transform.position = new Vector3 (save.playerPosition.x, save.playerPosition.y, save.playerPosition.z);
     }
 
     void OnTriggerEnter(Collider collider)

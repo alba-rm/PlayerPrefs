@@ -503,7 +503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CheckpointText: {fileID: 1001391523}
   Checkpoint: 0
-  userPosition: {x: 0, y: 0, z: 0}
+  playerPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &519555050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,7 +1426,7 @@ GameObject:
   - component: {fileID: 1255256749}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
